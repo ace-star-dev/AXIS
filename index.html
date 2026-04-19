@@ -35,7 +35,7 @@ body {
   color: var(--text);
   font-family: 'DM Sans', sans-serif;
   overflow-x: hidden;
-  cursor: auto; 
+  cursor: none;
 }
 
 /* CUSTOM CURSOR */
@@ -92,6 +92,14 @@ body::after {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 @keyframes pulseGold {
   0%, 100% { box-shadow: 0 0 20px rgba(201,168,76,0.2); }
   50% { box-shadow: 0 0 40px rgba(201,168,76,0.45); }
@@ -104,6 +112,10 @@ body::after {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
 }
+@keyframes counterUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* ─── NAV ─── */
 nav {
@@ -113,14 +125,13 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 32px 60px;
+  padding: 24px 60px;
   background: linear-gradient(to bottom, rgba(5,8,10,0.95) 0%, transparent 100%);
   backdrop-filter: blur(2px);
   border-bottom: 1px solid transparent;
-  transition: padding 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+  transition: border-color 0.4s ease, background 0.4s ease;
 }
 nav.scrolled {
-  padding: 16px 60px; /* Reduz o padding ao fazer scroll */
   background: rgba(5,8,10,0.97);
   border-bottom-color: var(--border);
 }
@@ -128,39 +139,26 @@ nav.scrolled {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 14px;
   text-decoration: none;
 }
-
 .nav-logo img {
-  width: 150px; /* LOGO MASSIVO */
-  height: 150px;
+  width: 48px;
+  height: 48px;
   object-fit: contain;
-  filter: drop-shadow(0 0 15px rgba(201,168,76,0.3));
+  filter: drop-shadow(0 0 10px rgba(201,168,76,0.25));
   animation: float 6s ease-in-out infinite;
-  transition: width 0.4s ease, height 0.4s ease; /* Transição suave */
 }
-
 .nav-logo-text {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 42px; /* TEXTO GRANDE, MAS MENOR QUE O LOGO */
-  letter-spacing: 0.15em;
+  font-size: 22px;
+  letter-spacing: 0.18em;
   color: var(--text);
   background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dim) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  transition: font-size 0.4s ease; /* Transição suave */
-}
-
-/* Efeito de redução (Shrink) ao fazer scroll */
-nav.scrolled .nav-logo img {
-  width: 64px;
-  height: 64px;
-}
-nav.scrolled .nav-logo-text {
-  font-size: 24px;
 }
 
 .nav-links {
@@ -243,6 +241,7 @@ nav.scrolled .nav-logo-text {
   align-items: center;
   justify-content: center;
   gap: 36px;
+  animation: fadeIn 0.25s ease;
 }
 .mobile-menu.open { display: flex; }
 .mobile-menu a {
@@ -263,8 +262,7 @@ nav.scrolled .nav-logo-text {
   display: flex;
   align-items: center;
   overflow: hidden;
-  /* Top padding ampliado significativamente para acomodar o logo gigante sem sobrepor */
-  padding: 260px 60px 80px; 
+  padding: 120px 60px 80px;
 }
 
 .hero-bg {
@@ -312,6 +310,7 @@ nav.scrolled .nav-logo-text {
   margin-bottom: 36px;
   background: rgba(201,168,76,0.05);
   clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  animation: fadeIn 0.8s 0.2s both;
 }
 .hero-badge-dot {
   width: 6px; height: 6px;
@@ -329,6 +328,17 @@ nav.scrolled .nav-logo-text {
   color: var(--gold);
 }
 
+.hero-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--emerald-glow);
+  margin-bottom: 16px;
+  animation: fadeUp 0.8s 0.3s both;
+}
+
 .hero-h1 {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 300;
@@ -337,6 +347,7 @@ nav.scrolled .nav-logo-text {
   letter-spacing: -0.02em;
   color: var(--text);
   margin-bottom: 8px;
+  animation: fadeUp 0.9s 0.4s both;
 }
 .hero-h1 em {
   font-style: italic;
@@ -355,12 +366,15 @@ nav.scrolled .nav-logo-text {
   text-transform: uppercase;
   color: var(--text);
   margin-bottom: 32px;
+  animation: fadeUp 0.9s 0.5s both;
 }
 
 .hero-divider {
   width: 60px; height: 1px;
   background: linear-gradient(to right, var(--gold), transparent);
   margin-bottom: 28px;
+  animation: lineExpand 0.8s 0.6s both;
+  transform-origin: left;
 }
 
 .hero-desc {
@@ -370,12 +384,14 @@ nav.scrolled .nav-logo-text {
   color: var(--text-dim);
   max-width: 480px;
   margin-bottom: 48px;
+  animation: fadeUp 0.8s 0.65s both;
 }
 
 .hero-ctas {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.75s both;
 }
 
 .btn-primary {
@@ -433,6 +449,7 @@ nav.scrolled .nav-logo-text {
   right: 60px;
   display: flex;
   gap: 48px;
+  animation: fadeUp 0.8s 1s both;
   z-index: 2;
 }
 .stat-item {
@@ -460,7 +477,7 @@ nav.scrolled .nav-logo-text {
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  animation: float 7s ease-in-out infinite;
+  animation: float 7s ease-in-out infinite, fadeIn 1s 0.5s both;
   opacity: 0.12;
 }
 .hero-logo-float img {
@@ -476,6 +493,7 @@ nav.scrolled .nav-logo-text {
   display: flex;
   align-items: center;
   gap: 12px;
+  animation: fadeIn 1s 1.2s both;
   z-index: 2;
 }
 .scroll-line {
@@ -729,6 +747,7 @@ section:nth-child(even) { background: var(--surface); }
 }
 .process-item:hover .process-num { color: rgba(201,168,76,0.4); }
 
+.process-body {}
 .process-step-tag {
   font-size: 10px;
   letter-spacing: 0.2em;
@@ -783,12 +802,15 @@ section:nth-child(even) { background: var(--surface); }
   aspect-ratio: 4/3;
   background: var(--surface-2);
   cursor: pointer;
+  group: true;
 }
 .portfolio-card-tall { aspect-ratio: 3/4; }
 .portfolio-card-inner {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, var(--emerald) 0%, var(--black) 100%);
+  background: linear-gradient(135deg,
+    var(--emerald) 0%,
+    var(--black) 100%);
   display: flex;
   align-items: flex-end;
   padding: 32px;
@@ -818,31 +840,98 @@ section:nth-child(even) { background: var(--surface); }
   color: var(--text);
 }
 
-.portfolio-card:nth-child(1) .portfolio-card-inner { background: linear-gradient(135deg, #0D2B1F 0%, #030609 100%); }
-.portfolio-card:nth-child(2) .portfolio-card-inner { background: linear-gradient(135deg, #1A1500 0%, #030609 100%); }
-.portfolio-row-2 .portfolio-card:nth-child(1) .portfolio-card-inner { background: linear-gradient(135deg, #0A1A12 0%, #030609 100%); }
-.portfolio-row-2 .portfolio-card:nth-child(2) .portfolio-card-inner { background: linear-gradient(135deg, #15100A 0%, #030609 100%); }
-.portfolio-row-2 .portfolio-card:nth-child(3) .portfolio-card-inner { background: linear-gradient(135deg, #0A1520 0%, #030609 100%); }
+/* Decorative patterns per card */
+.portfolio-card:nth-child(1) .portfolio-card-inner {
+  background: linear-gradient(135deg, #0D2B1F 0%, #030609 100%);
+}
+.portfolio-card:nth-child(2) .portfolio-card-inner {
+  background: linear-gradient(135deg, #1A1500 0%, #030609 100%);
+}
+.portfolio-row-2 .portfolio-card:nth-child(1) .portfolio-card-inner {
+  background: linear-gradient(135deg, #0A1A12 0%, #030609 100%);
+}
+.portfolio-row-2 .portfolio-card:nth-child(2) .portfolio-card-inner {
+  background: linear-gradient(135deg, #15100A 0%, #030609 100%);
+}
+.portfolio-row-2 .portfolio-card:nth-child(3) .portfolio-card-inner {
+  background: linear-gradient(135deg, #0A1520 0%, #030609 100%);
+}
 
+/* SVG patterns inside portfolio cards */
 .card-pattern {
   position: absolute;
   inset: 0;
   opacity: 0.06;
-  background-image: repeating-linear-gradient(45deg, var(--gold) 0px, var(--gold) 1px, transparent 1px, transparent 40px);
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--gold) 0px,
+    var(--gold) 1px,
+    transparent 1px,
+    transparent 40px
+  );
 }
 
 /* ─── TESTIMONIALS ─── */
-#testimonials { text-align: center; }
-.testimonial-carousel { max-width: 780px; margin: 80px auto 0; position: relative; }
-.testimonial-item { display: none; flex-direction: column; align-items: center; gap: 32px; }
-.testimonial-item.active { display: flex; animation: fadeIn 0.5s ease; }
-.testimonial-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 32px); font-weight: 300; font-style: italic; line-height: 1.6; color: var(--text-dim); }
-.testimonial-author { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.testimonial-name { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; color: var(--gold); }
-.testimonial-role { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
-.testimonial-dots { display: flex; gap: 10px; justify-content: center; margin-top: 48px; }
-.t-dot { width: 24px; height: 2px; background: var(--border-strong); cursor: pointer; transition: background 0.2s, width 0.3s; border: none; }
-.t-dot.active { background: var(--gold); width: 40px; }
+#testimonials {
+  text-align: center;
+}
+.testimonial-carousel {
+  max-width: 780px;
+  margin: 80px auto 0;
+  position: relative;
+}
+.testimonial-item {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+.testimonial-item.active { display: flex; animation: fadeUp 0.5s ease; }
+
+.testimonial-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.testimonial-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+.testimonial-role {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.testimonial-dots {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 48px;
+}
+.t-dot {
+  width: 24px; height: 2px;
+  background: var(--border-strong);
+  cursor: pointer;
+  transition: background 0.2s, width 0.3s;
+  border: none;
+}
+.t-dot.active {
+  background: var(--gold);
+  width: 40px;
+}
 
 /* ─── CTA SECTION ─── */
 #cta-section {
@@ -875,36 +964,104 @@ section:nth-child(even) { background: var(--surface); }
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-#cta-section p { font-size: 15px; font-weight: 300; color: var(--text-dim); max-width: 480px; margin: 0 auto 48px; line-height: 1.8; position: relative; }
-#cta-section .cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+#cta-section p {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-dim);
+  max-width: 480px;
+  margin: 0 auto 48px;
+  line-height: 1.8;
+  position: relative;
+}
+#cta-section .cta-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
 
 /* ─── FOOTER ─── */
-footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px solid var(--border); }
-.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 80px; }
-.footer-brand-desc { font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--text-muted); margin-top: 20px; max-width: 280px; }
-.footer-col-title { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+footer {
+  background: var(--black);
+  padding: 80px 60px 40px;
+  border-top: 1px solid var(--border);
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+.footer-brand-desc {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-top: 20px;
+  max-width: 280px;
+}
+.footer-col-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-.footer-links a { font-size: 13px; font-weight: 300; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
 .footer-links a:hover { color: var(--gold-light); }
-.footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 32px; border-top: 1px solid var(--border); }
-.footer-copy { font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em; }
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.footer-copy {
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
 .footer-socials { display: flex; gap: 20px; }
 .footer-socials a {
-  width: 36px; height: 36px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
-  color: var(--text-muted); text-decoration: none; font-size: 12px; transition: border-color 0.2s, color 0.2s;
+  width: 36px; height: 36px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 12px;
+  transition: border-color 0.2s, color 0.2s;
   clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
 }
 .footer-socials a:hover { border-color: var(--gold-dim); color: var(--gold); }
 
+/* ─── REVEAL ANIMATIONS ─── */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
   nav { padding: 20px 32px; }
-  .nav-logo img { width: 100px; height: 100px; }
-  .nav-logo-text { font-size: 32px; }
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
   section { padding: 80px 32px; }
-  #hero { padding: 180px 32px 80px; } /* Ajuste responsivo do topo */
+  #hero { padding: 100px 32px 80px; }
   .hero-stats { right: 32px; gap: 28px; }
   .hero-logo-float { display: none; }
   #services .services-grid { grid-template-columns: 1fr; }
@@ -914,30 +1071,29 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
   .portfolio-row-2 { grid-template-columns: 1fr 1fr; }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
+
 @media (max-width: 640px) {
   nav { padding: 18px 20px; }
-  .nav-logo img { width: 80px; height: 80px; }
-  .nav-logo-text { font-size: 28px; }
   section { padding: 64px 20px; }
-  #hero { padding: 160px 20px 120px; } /* Ajuste responsivo do topo */
+  #hero { padding: 100px 20px 120px; }
   .hero-stats { position: relative; bottom: auto; right: auto; justify-content: flex-start; margin-top: 48px; }
   .portfolio-row-2 { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 20px; }
   .process-item { grid-template-columns: 48px 1fr; gap: 24px; }
 }
-
-.reveal { transition: transform 0.8s ease; }
 </style>
 </head>
 <body>
 
+<!-- CURSOR -->
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 
+<!-- NAVIGATION -->
 <nav id="navbar">
   <a href="#" class="nav-logo">
-    <img src="logo.png" alt="AXIS" id="logo-img">
+    <img src="/mnt/user-data/uploads/Design_sem_nome.png" alt="AXIS" id="logo-img">
     <span class="nav-logo-text">AXIS</span>
   </a>
 
@@ -956,6 +1112,7 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
   </button>
 </nav>
 
+<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
   <a href="#services" onclick="closeMobile()">Servicios</a>
   <a href="#about" onclick="closeMobile()">Nosotros</a>
@@ -965,13 +1122,15 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
   <a href="#cta-section" onclick="closeMobile()" style="color: var(--gold);">Hablemos</a>
 </div>
 
+<!-- ─── HERO ─── -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
   <div class="hero-orb"></div>
 
+  <!-- Floating logo watermark -->
   <div class="hero-logo-float">
-    <img src="logo.png" alt="">
+    <img src="/mnt/user-data/uploads/Design_sem_nome.png" alt="">
   </div>
 
   <div class="hero-content">
@@ -1002,16 +1161,16 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
 
   <div class="hero-stats">
     <div class="stat-item">
-      <div class="stat-num">120+</div>
+      <div class="stat-num">12+</div>
       <div class="stat-label">Proyectos</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">98%</div>
-      <div class="stat-label">Satisfacción</div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Dedicación</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">8+</div>
-      <div class="stat-label">Años</div>
+      <div class="stat-num">2026</div>
+      <div class="stat-label">Fundación</div>
     </div>
   </div>
 
@@ -1021,6 +1180,7 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
   </div>
 </section>
 
+<!-- ─── SERVICES ─── -->
 <section id="services">
   <div class="section-tag reveal">
     <div class="section-tag-line"></div>
@@ -1032,13 +1192,16 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
   <div class="services-grid reveal">
 
     <div class="service-card">
-      <div class="service-number">01 / 06</div>
+      <div class="service-number">01 / 07</div>
       <div class="service-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
       <h3 class="service-name">Diseño Web</h3>
       <p class="service-desc">Sitios web que combinan estética de alto nivel con conversión estratégica. Cada pixel tiene un propósito.</p>
-      <a href="#" class="service-link">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#" class="service-link">
+        Explorar
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
 
     <div class="service-card">
@@ -1046,60 +1209,99 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
       <div class="service-icon">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       </div>
-      <h3 class="service-name">Sistemas a Medida</h3>
-      <p class="service-desc">Desarrollo de software personalizado para automatizar procesos y escalar tu negocio sin límites.</p>
-      <a href="#" class="service-link">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <h3 class="service-name">Sistemas, Apps & WebApps</h3>
+      <p class="service-desc">Desarrollo de software personalizado, aplicaciones móviles y web progresivas (PWA) — desde sistemas internos hasta productos SaaS y MVPs listos para el mercado.</p>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;">
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">iOS & Android</span>
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">PWA</span>
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">SaaS</span>
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">MVP</span>
+      </div>
+      <a href="#" class="service-link">
+        Explorar
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
 
     <div class="service-card">
       <div class="service-number">03 / 06</div>
       <div class="service-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
       </div>
-      <h3 class="service-name">Automatización</h3>
-      <p class="service-desc">Flujos inteligentes que trabajan por ti las 24 horas. Integración de APIs, CRMs y herramientas empresariales.</p>
-      <a href="#" class="service-link">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <h3 class="service-name">Identidad de Marca</h3>
+      <p class="service-desc">Construcción de identidad visual y posicionamiento de autoridad que distingue tu marca en el mercado.</p>
+      <a href="#" class="service-link">
+        Explorar
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
 
     <div class="service-card">
       <div class="service-number">04 / 06</div>
       <div class="service-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       </div>
-      <h3 class="service-name">Soluciones IA</h3>
-      <p class="service-desc">Integración de inteligencia artificial para potenciar tu negocio: chatbots, análisis predictivo y generación de contenido.</p>
-      <a href="#" class="service-link">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <h3 class="service-name">Creación de Documentos</h3>
+      <p class="service-desc">Diseño y edición profesional de documentos Word, Excel, PowerPoint y PDF — desde informes ejecutivos hasta presentaciones de alto impacto.</p>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;">
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Word</span>
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Excel</span>
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">PowerPoint</span>
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">PDF</span>
+      </div>
+      <a href="#" class="service-link">
+        Explorar
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
 
     <div class="service-card">
       <div class="service-number">05 / 06</div>
       <div class="service-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--gold)" stroke="none"/></svg>
       </div>
-      <h3 class="service-name">Estrategia Digital</h3>
-      <p class="service-desc">Consultoría orientada a resultados. Transformamos tu estrategia digital en un motor de crecimiento sostenible.</p>
-      <a href="#" class="service-link">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <h3 class="service-name">Contenido para Redes</h3>
+      <p class="service-desc">Creación y edición de postagens e stories para Instagram, Facebook, LinkedIn y TikTok — diseños que detienen el scroll y comunican con autoridad.</p>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;">
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Posts</span>
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Stories</span>
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Reels</span>
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Carruseles</span>
+      </div>
+      <a href="#" class="service-link">
+        Explorar
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
 
     <div class="service-card">
       <div class="service-number">06 / 06</div>
       <div class="service-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
       </div>
-      <h3 class="service-name">Identidad de Marca</h3>
-      <p class="service-desc">Construcción de identidad visual y posicionamiento de autoridad que distingue tu marca en el mercado.</p>
-      <a href="#" class="service-link">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <h3 class="service-name">Automatización & IA</h3>
+      <p class="service-desc">Flujos inteligentes que trabajan por ti las 24 horas. Integración de APIs, CRMs y herramientas con IA aplicada — chatbots, análisis predictivo y generación de contenido automatizada.</p>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;">
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Workflows</span>
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Chatbots IA</span>
+        <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Integraciones</span>
+      </div>
+      <a href="#" class="service-link">
+        Explorar
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
     </div>
 
   </div>
 </section>
 
+<!-- ─── ABOUT ─── -->
 <section id="about">
   <div class="about-inner">
     <div class="about-visual">
       <div class="about-ring"></div>
       <div class="about-ring"></div>
-      <img src="logo.png" alt="AXIS" class="about-emblem reveal">
+      <img src="/mnt/user-data/uploads/Design_sem_nome.png" alt="AXIS" class="about-emblem reveal">
     </div>
 
     <div class="about-text">
@@ -1134,6 +1336,7 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
   </div>
 </section>
 
+<!-- ─── PROCESS ─── -->
 <section id="process" style="background: var(--surface);">
   <div style="max-width: 1200px; margin: 0 auto;">
     <div class="section-tag reveal">
@@ -1179,6 +1382,7 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
   </div>
 </section>
 
+<!-- ─── PORTFOLIO ─── -->
 <section id="portfolio">
   <div class="portfolio-header reveal">
     <div>
@@ -1248,6 +1452,7 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
   </div>
 </section>
 
+<!-- ─── TESTIMONIALS ─── -->
 <section id="testimonials" style="background: var(--surface);">
   <div class="section-tag reveal" style="justify-content: center;">
     <div class="section-tag-line"></div>
@@ -1287,6 +1492,7 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
   </div>
 </section>
 
+<!-- ─── CTA ─── -->
 <section id="cta-section">
   <h2 class="cta-title reveal">¿Listo para<br><em>construir</em> algo<br>extraordinario?</h2>
   <p class="reveal">Conversemos sobre tu proyecto. Sin compromiso, sin plantillas genéricas — solo soluciones diseñadas exactamente para lo que necesitas.</p>
@@ -1301,11 +1507,12 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
   </div>
 </section>
 
+<!-- ─── FOOTER ─── -->
 <footer>
   <div class="footer-top">
     <div>
       <a href="#" class="nav-logo" style="display: inline-flex;">
-        <img src="logo.png" alt="AXIS" style="width: 40px; height: 40px; object-fit: contain; animation: none;">
+        <img src="/mnt/user-data/uploads/Design_sem_nome.png" alt="AXIS" style="width: 40px; height: 40px; object-fit: contain; animation: none;">
         <span class="nav-logo-text">AXIS</span>
       </a>
       <p class="footer-brand-desc">Soluciones digitales de alta precisión para empresas y emprendedores que exigen excelencia.</p>
@@ -1315,10 +1522,11 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
       <div class="footer-col-title">Servicios</div>
       <ul class="footer-links">
         <li><a href="#">Diseño Web</a></li>
-        <li><a href="#">Sistemas a Medida</a></li>
-        <li><a href="#">Automatización</a></li>
-        <li><a href="#">Soluciones IA</a></li>
+        <li><a href="#">Sistemas, Apps & WebApps</a></li>
+        <li><a href="#">Automatización & IA</a></li>
         <li><a href="#">Creación de Documentos</a></li>
+        <li><a href="#">Contenido para Redes</a></li>
+        <li><a href="#">Identidad de Marca</a></li>
       </ul>
     </div>
 
