@@ -113,13 +113,14 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 60px;
+  padding: 32px 60px;
   background: linear-gradient(to bottom, rgba(5,8,10,0.95) 0%, transparent 100%);
   backdrop-filter: blur(2px);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.4s ease, background 0.4s ease;
+  transition: padding 0.4s ease, border-color 0.4s ease, background 0.4s ease;
 }
 nav.scrolled {
+  padding: 16px 60px; /* Reduz o padding ao fazer scroll */
   background: rgba(5,8,10,0.97);
   border-bottom-color: var(--border);
 }
@@ -127,26 +128,39 @@ nav.scrolled {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 18px; /* Aumentado para dar respiro ao logo maior */
+  gap: 24px;
   text-decoration: none;
 }
+
 .nav-logo img {
-  width: 64px; /* Aumentado de 48px para ser maior que o texto */
-  height: 64px; /* Aumentado para manter proporção */
+  width: 150px; /* LOGO MASSIVO */
+  height: 150px;
   object-fit: contain;
-  filter: drop-shadow(0 0 10px rgba(201,168,76,0.25));
+  filter: drop-shadow(0 0 15px rgba(201,168,76,0.3));
   animation: float 6s ease-in-out infinite;
+  transition: width 0.4s ease, height 0.4s ease; /* Transição suave */
 }
+
 .nav-logo-text {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 22px;
-  letter-spacing: 0.18em;
+  font-size: 42px; /* TEXTO GRANDE, MAS MENOR QUE O LOGO */
+  letter-spacing: 0.15em;
   color: var(--text);
   background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dim) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  transition: font-size 0.4s ease; /* Transição suave */
+}
+
+/* Efeito de redução (Shrink) ao fazer scroll */
+nav.scrolled .nav-logo img {
+  width: 64px;
+  height: 64px;
+}
+nav.scrolled .nav-logo-text {
+  font-size: 24px;
 }
 
 .nav-links {
@@ -249,7 +263,7 @@ nav.scrolled {
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 120px 60px 80px;
+  padding: 180px 60px 80px; /* Aumentado o topo para comportar o logo gigante */
 }
 
 .hero-bg {
@@ -894,10 +908,12 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
   nav { padding: 20px 32px; }
+  .nav-logo img { width: 100px; height: 100px; }
+  .nav-logo-text { font-size: 32px; }
   .nav-links, .nav-cta { display: none; }
   .hamburger { display: flex; }
   section { padding: 80px 32px; }
-  #hero { padding: 100px 32px 80px; }
+  #hero { padding: 140px 32px 80px; }
   .hero-stats { right: 32px; gap: 28px; }
   .hero-logo-float { display: none; }
   #services .services-grid { grid-template-columns: 1fr; }
@@ -909,8 +925,10 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
 }
 @media (max-width: 640px) {
   nav { padding: 18px 20px; }
+  .nav-logo img { width: 80px; height: 80px; }
+  .nav-logo-text { font-size: 28px; }
   section { padding: 64px 20px; }
-  #hero { padding: 100px 20px 120px; }
+  #hero { padding: 130px 20px 120px; }
   .hero-stats { position: relative; bottom: auto; right: auto; justify-content: flex-start; margin-top: 48px; }
   .portfolio-row-2 { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
@@ -1030,7 +1048,7 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
       <h3 class="service-name">Diseño Web</h3>
-      <p class="service-desc">Sitios web que combinan estética de alto nível con conversión estratégica. Cada pixel tiene um propósito.</p>
+      <p class="service-desc">Sitios web que combinan estética de alto nivel con conversión estratégica. Cada pixel tiene un propósito.</p>
       <a href="#" class="service-link">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
 
@@ -1141,7 +1159,7 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
         <div class="process-body">
           <div class="process-step-tag">Fase Inicial</div>
           <h3 class="process-title">Descubrimiento & Diagnóstico</h3>
-          <p class="process-desc">Analizamos tu negocio, objetivos y competencia en profundidad. Identificamos brechas y oportunidades que outros no ven. Este es el fundamento de tudo lo que viene.</p>
+          <p class="process-desc">Analizamos tu negocio, objetivos y competencia en profundidad. Identificamos brechas y oportunidades que otros no ven. Este es el fundamento de todo lo que viene.</p>
         </div>
       </div>
       <div class="process-item reveal reveal-delay-1">
@@ -1149,7 +1167,7 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
         <div class="process-body">
           <div class="process-step-tag">Estrategia</div>
           <h3 class="process-title">Diseño de Solución</h3>
-          <p class="process-desc">Desarrollamos a arquitectura completa: wireframes, flujos de usuário, stack tecnológico y roadmap de implementación. Sin ambigüedades, sin sorpresas.</p>
+          <p class="process-desc">Desarrollamos la arquitectura completa: wireframes, flujos de usuario, stack tecnológico y roadmap de implementación. Sin ambigüedades, sin sorpresas.</p>
         </div>
       </div>
       <div class="process-item reveal reveal-delay-2">
@@ -1165,7 +1183,7 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
         <div class="process-body">
           <div class="process-step-tag">Entrega</div>
           <h3 class="process-title">Lanzamiento & Soporte</h3>
-          <p class="process-desc">Deploy impecable con QA riguroso. Post-lanzamiento con monitoreo activo, optimizaciones y suporte continuo para que tu inversión siga generando retornos.</p>
+          <p class="process-desc">Deploy impecable con QA riguroso. Post-lanzamiento con monitoreo activo, optimizaciones y soporte continuo para que tu inversión siga generando retornos.</p>
         </div>
       </div>
     </div>
@@ -1258,14 +1276,14 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
       </div>
     </div>
     <div class="testimonial-item">
-      <p class="testimonial-quote">"El sistema que desarrollaron para nosotros redujo nuestros tiempos operativos en un 60%. No es un proveedor — es um socio estratégico real."</p>
+      <p class="testimonial-quote">"El sistema que desarrollaron para nosotros redujo nuestros tiempos operativos en un 60%. No es un proveedor — es un socio estratégico real."</p>
       <div class="testimonial-author">
         <div class="testimonial-name">Rodrigo Mendez</div>
         <div class="testimonial-role">Director · FlowOps, Ciudad de México</div>
       </div>
     </div>
     <div class="testimonial-item">
-      <p class="testimonial-quote">"Profesionalismo de nível internacional con atención personalizada. Entregaron en tiempo y forma, con uma calidad que no había encontrado en ningún otro estúdio."</p>
+      <p class="testimonial-quote">"Profesionalismo de nivel internacional con atención personalizada. Entregaron en tiempo y forma, con una calidad que no había encontrado en ningún otro estudio."</p>
       <div class="testimonial-author">
         <div class="testimonial-name">Camila Ferreira</div>
         <div class="testimonial-role">Fundadora · Aureo, São Paulo</div>
