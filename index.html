@@ -452,6 +452,13 @@ nav.scrolled {
   animation: fadeUp 0.8s 1s both;
   z-index: 2;
 }
+/* On mobile hero-content is flex column so stats flow naturally */
+@media (max-width: 640px) {
+  .hero-stats {
+    position: relative;
+    bottom: auto; right: auto;
+  }
+}
 .stat-item {
   text-align: right;
 }
@@ -1196,10 +1203,14 @@ footer {
     bottom: auto; right: auto;
     justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 24px;
-    margin-top: 40px;
+    gap: 28px;
+    margin-top: 48px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    width: 100%;
   }
-  .stat-num { font-size: 28px; }
+  .stat-item { text-align: left; }
+  .stat-num { font-size: 32px; }
   /* Portfolio — single column, fixed heights */
   .portfolio-grid { grid-template-columns: 1fr; }
   .portfolio-row-2 { grid-template-columns: 1fr; }
@@ -1303,20 +1314,20 @@ footer {
       </a>
       <a href="#portfolio" class="btn-ghost">Ver Proyectos</a>
     </div>
-  </div>
 
-  <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">12+</div>
-      <div class="stat-label">Proyectos</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Dedicación</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">2026</div>
-      <div class="stat-label">Fundación</div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">12+</div>
+        <div class="stat-label">Proyectos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Dedicación</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2026</div>
+        <div class="stat-label">Fundación</div>
+      </div>
     </div>
   </div>
 
