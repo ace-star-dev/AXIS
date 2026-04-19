@@ -1588,6 +1588,15 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
 
+// Dynamic hero padding — always clears the actual nav height
+function fixHeroPadding() {
+  const navH = navbar.offsetHeight;
+  const hero = document.getElementById('hero');
+  if (hero) hero.style.paddingTop = (navH + 40) + 'px';
+}
+fixHeroPadding();
+window.addEventListener('resize', fixHeroPadding);
+
 // MOBILE MENU
 const ham = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
