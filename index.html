@@ -298,7 +298,10 @@ nav.scrolled {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 760px;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .hero-badge {
@@ -392,6 +395,7 @@ nav.scrolled {
   gap: 16px;
   flex-wrap: wrap;
   animation: fadeUp 0.8s 0.75s both;
+  width: 100%;
 }
 
 .btn-primary {
@@ -452,12 +456,18 @@ nav.scrolled {
   animation: fadeUp 0.8s 1s both;
   z-index: 2;
 }
-/* On mobile hero-content is flex column so stats flow naturally */
-@media (max-width: 640px) {
+@media (max-width: 1280px) {
   .hero-stats {
     position: relative;
     bottom: auto; right: auto;
+    gap: 36px;
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    width: 100%;
+    flex-wrap: wrap;
   }
+  .stat-item { text-align: left; }
 }
 .stat-item {
   text-align: right;
@@ -1174,7 +1184,6 @@ footer {
   .nav-logo img { width: 100px; height: 100px; }
   section { padding: 80px 32px; }
   #hero { padding: 140px 32px 80px; }
-  .hero-stats { right: 32px; gap: 28px; }
   .hero-logo-float { display: none; }
   #services .services-grid { grid-template-columns: 1fr; }
   #about .about-inner { grid-template-columns: 1fr; gap: 60px; }
@@ -1198,19 +1207,7 @@ footer {
   .hero-desc { font-size: 14px; }
   .hero-badge { margin-bottom: 24px; }
   .hero-ctas { flex-direction: column; align-items: flex-start; }
-  .hero-stats {
-    position: relative;
-    bottom: auto; right: auto;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 28px;
-    margin-top: 48px;
-    padding-top: 28px;
-    border-top: 1px solid var(--border);
-    width: 100%;
-  }
-  .stat-item { text-align: left; }
-  .stat-num { font-size: 32px; }
+  .stat-num { font-size: 28px; }
   /* Portfolio — single column, fixed heights */
   .portfolio-grid { grid-template-columns: 1fr; }
   .portfolio-row-2 { grid-template-columns: 1fr; }
