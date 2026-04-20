@@ -448,27 +448,17 @@ nav.scrolled {
 
 /* Hero stats */
 .hero-stats {
-  position: absolute;
-  bottom: 60px;
-  right: 60px;
   display: flex;
   gap: 48px;
+  flex-wrap: wrap;
   animation: fadeUp 0.8s 1s both;
   z-index: 2;
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  width: 100%;
 }
-@media (max-width: 1280px) {
-  .hero-stats {
-    position: relative;
-    bottom: auto; right: auto;
-    gap: 36px;
-    margin-top: 56px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
-    width: 100%;
-    flex-wrap: wrap;
-  }
-  .stat-item { text-align: left; }
-}
+.stat-item { text-align: left; }
 .stat-item {
   text-align: right;
 }
