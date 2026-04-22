@@ -798,7 +798,7 @@ section:nth-child(even) { background: var(--surface); }
 }
 .portfolio-row-2 {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   margin-top: 2px;
 }
@@ -1609,6 +1609,22 @@ footer {
       </div>
     </div>
 
+    <!-- Card 5 — Arun Asian Bar -->
+    <div class="portfolio-card" onclick="window.open('https://arunasianbar.vercel.app/','_blank')">
+      <div class="pf-iframe-wrap">
+        <iframe src="https://arunasianbar.vercel.app/" scrolling="no" tabindex="-1"></iframe>
+      </div>
+      <div class="portfolio-overlay"></div>
+      <div class="portfolio-content">
+        <div class="portfolio-tag">Landing Page · Restaurante</div>
+        <div class="portfolio-title">Arun Asian Bar</div>
+        <p class="pf-desc">Sitio de alta cocina asiática en Salto del Guairá. Diseño premium con menú, galería y reservas — estética oriental refinada.</p>
+        <div class="pf-tags">
+          <span>HTML/CSS</span><span>Vercel</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1686,8 +1702,7 @@ footer {
         <li><a href="#">Automatización & IA</a></li>
         <li><a href="#">Creación de Documentos</a></li>
         <li><a href="#">Contenido para Redes</a></li>
-        <li><a href="#">Identidad de Marca</a></li>
-      </ul>
+        <li><a href="#">Identidad de Marca</a></li>      </ul>
     </div>
 
     <div>
