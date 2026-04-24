@@ -259,10 +259,33 @@ section:last-of-type::after { display: none; }
 
 /* ─── PORTFOLIO ─── */
 .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px; }
-.portfolio-card { position: relative; overflow: hidden; height: 480px; background: var(--surface-2); cursor: pointer; border: 1px solid var(--border); transition: transform 0.4s ease; }
+.portfolio-card { 
+  position: relative; 
+  overflow: hidden; 
+  height: 480px; 
+  background: var(--surface-2); 
+  cursor: pointer; 
+  border: 1px solid var(--border); 
+  transition: transform 0.4s ease; 
+  contain: content;
+}
 .portfolio-card:hover { transform: translateY(-10px); border-color: var(--gold); }
-.pf-iframe-wrap { position: absolute; top: 0; left: 0; right: 0; height: 65%; overflow: hidden; pointer-events: none; background: #05080a; }
-.pf-iframe-wrap iframe { width: 1280px; height: 900px; border: none; transform-origin: top left; transform: scale(0.42); opacity: 0.85; }
+.pf-iframe-wrap { 
+  position: absolute; 
+  top: 0; left: 0; right: 0; 
+  height: 65%; 
+  overflow: hidden; 
+  pointer-events: none; 
+  background: #05080a; 
+}
+.pf-iframe-wrap iframe { 
+  width: 1280px; 
+  height: 900px; 
+  border: none; 
+  transform-origin: top left; 
+  opacity: 0.85; 
+  will-change: transform;
+}
 .portfolio-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,8,10,1) 0%, rgba(5,8,10,0.95) 35%, transparent 65%); z-index: 1; }
 .portfolio-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 28px; z-index: 2; }
 .portfolio-tag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-family: 'Syne', sans-serif; }
@@ -524,37 +547,37 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
   <h2 class="section-title reveal">Trabajo <em>seleccionado</em></h2>
   <div class="portfolio-grid reveal">
     <div class="portfolio-card" onclick="window.open('https://k9-fitness-academia.vercel.app/','_blank')">
-      <div class="pf-iframe-wrap"><iframe src="https://k9-fitness-academia.vercel.app/" scrolling="no"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe src="https://k9-fitness-academia.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Landing Page Experience</div><div class="portfolio-title">K9 Fitness</div><div class="pf-tags"><span>Luxury UI</span><span>Conversion</span><span>Mobile First</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://k9-webapp.vercel.app/','_blank')">
-      <div class="pf-iframe-wrap"><iframe src="https://k9-webapp.vercel.app/" scrolling="no"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe src="https://k9-webapp.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Custom Systems & WebApps</div><div class="portfolio-title">K9 Management</div><div class="pf-tags"><span>Management</span><span>SaaS</span><span>Infrastructure</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://arunasianbar.vercel.app/','_blank')">
-      <div class="pf-iframe-wrap"><iframe src="https://arunasianbar.vercel.app/" scrolling="no"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe src="https://arunasianbar.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Landing Page Experience</div><div class="portfolio-title">Arun Asian Bar</div><div class="pf-tags"><span>Luxury UI</span><span>Branding</span><span>Vercel</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://delivery-arun.vercel.app/','_blank')">
-      <div class="pf-iframe-wrap"><iframe src="https://delivery-arun.vercel.app/" scrolling="no"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe src="https://delivery-arun.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Custom Systems & WebApps</div><div class="portfolio-title">Arun Delivery</div><div class="pf-tags"><span>E-commerce</span><span>SaaS</span><span>CMS</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://ana-neon-eight.vercel.app/','_blank')">
-      <div class="pf-iframe-wrap"><iframe src="https://ana-neon-eight.vercel.app/" scrolling="no"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe src="https://ana-neon-eight.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Authority & Branding</div><div class="portfolio-title">Ana Fernandes</div><div class="pf-tags"><span>Visual ID</span><span>Authority</span><span>Performance</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://cafecomprette.vercel.app/','_blank')">
-      <div class="pf-iframe-wrap"><iframe src="https://cafecomprette.vercel.app/" scrolling="no"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe src="https://cafecomprette.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Media & Content Hub</div><div class="portfolio-title">Café com Prétte</div><div class="pf-tags"><span>Integrations</span><span>Content Hub</span><span>UI Design</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://smartbuypy.vercel.app/','_blank')">
-      <div class="pf-iframe-wrap"><iframe src="https://smartbuypy.vercel.app/" scrolling="no"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe src="https://smartbuypy.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Custom Systems & WebApps</div><div class="portfolio-title">Smart Buy</div><div class="pf-tags"><span>Logistics</span><span>Automation</span><span>Architecture</span></div></div>
     </div>
@@ -648,19 +671,26 @@ setInterval(() => setTestimonial((currentT + 1) % items.length), 5000);
 const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 function scaleIframes() { 
-  const isMobile = window.innerWidth <= 1024;
   document.querySelectorAll('.pf-iframe-wrap').forEach(wrap => { 
     const baseWidth = 1280;
-    const scale = wrap.offsetWidth / baseWidth; 
+    const rect = wrap.getBoundingClientRect();
+    if (rect.width === 0) return;
+    
+    const scale = rect.width / baseWidth; 
     const iframe = wrap.querySelector('iframe'); 
     if (iframe) { 
-      iframe.style.transform = `scale(${scale})`; 
       iframe.style.width = baseWidth + 'px';
-      iframe.style.height = (wrap.offsetHeight / scale) + 'px'; 
+      iframe.style.height = (rect.height / scale) + 'px'; 
+      iframe.style.transform = `scale(${scale})`; 
     } 
   }); 
 }
-window.addEventListener('resize', scaleIframes); window.addEventListener('load', scaleIframes);
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(scaleIframes, 150);
+});
+window.addEventListener('load', scaleIframes);
 </script>
 </body>
 </html>
