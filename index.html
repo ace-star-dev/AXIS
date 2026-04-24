@@ -793,38 +793,29 @@ section:nth-child(even) { background: var(--surface); }
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 2px;
-}
-.portfolio-row-2 {
-  display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 2px;
+  gap: 32px;
+  margin-top: 60px;
 }
-.portfolio-row-2 .portfolio-card { height: 460px; }
 
 .portfolio-card {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4/3;
+  height: 480px;
   background: var(--surface-2);
   cursor: pointer;
-  group: true;
+  border: 1px solid var(--border);
+  transition: transform 0.4s ease, border-color 0.4s ease;
 }
-.portfolio-card-tall { aspect-ratio: 3/4; }
+.portfolio-card:hover { transform: translateY(-10px); border-color: var(--gold-strong); }
+
 .portfolio-card-inner {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg,
-    var(--emerald) 0%,
-    var(--black) 100%);
   display: flex;
-  align-items: flex-end;
-  padding: 32px;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  flex-direction: column;
 }
-.portfolio-card:hover .portfolio-card-inner { transform: scale(1.04); }
+.portfolio-card:hover .portfolio-card-inner { transform: none; }
 
 .portfolio-overlay {
   position: absolute;
@@ -846,23 +837,6 @@ section:nth-child(even) { background: var(--surface); }
   font-size: 24px;
   font-weight: 400;
   color: var(--text);
-}
-
-/* Decorative patterns per card */
-.portfolio-card:nth-child(1) .portfolio-card-inner {
-  background: linear-gradient(135deg, #0D2B1F 0%, #030609 100%);
-}
-.portfolio-card:nth-child(2) .portfolio-card-inner {
-  background: linear-gradient(135deg, #1A1500 0%, #030609 100%);
-}
-.portfolio-row-2 .portfolio-card:nth-child(1) .portfolio-card-inner {
-  background: linear-gradient(135deg, #0A1A12 0%, #030609 100%);
-}
-.portfolio-row-2 .portfolio-card:nth-child(2) .portfolio-card-inner {
-  background: linear-gradient(135deg, #15100A 0%, #030609 100%);
-}
-.portfolio-row-2 .portfolio-card:nth-child(3) .portfolio-card-inner {
-  background: linear-gradient(135deg, #0A1520 0%, #030609 100%);
 }
 
 /* SVG patterns inside portfolio cards */
@@ -1125,11 +1099,6 @@ footer {
   font-family: 'Syne', sans-serif;
 }
 
-/* set card heights explicitly */
-.portfolio-card { aspect-ratio: unset; height: 420px; }
-.portfolio-card-tall { aspect-ratio: unset; height: 560px; }
-.portfolio-row-2 .portfolio-card { height: 380px; }
-
 /* ─── DOC ICONS ─── */
 .doc-preview {
   position: absolute;
@@ -1332,7 +1301,7 @@ footer {
     <span class="section-tag-text">Nuestros Servicios</span>
   </div>
   <h2 class="section-title reveal">Lo que <em>construimos</em><br>para ti</h2>
-  <p class="section-subtitle reveal">Cada solución es diseñada con precisión técnica y visión estratégica para posicionarte donde mereces estar.</p>
+  <p class="section-subtitle reveal">Cada solución é projetada com precisão técnica e visão estratégica para posicionar você onde você merece estar.</p>
 
   <div class="services-grid reveal">
 
@@ -1342,7 +1311,7 @@ footer {
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
       <h3 class="service-name">Diseño Web</h3>
-      <p class="service-desc">Sitios web que combinan estética de alto nivel con conversión estratégica. Cada pixel tiene un propósito.</p>
+      <p class="service-desc">Sitios web que combinam estética de alto nível com conversão estratégica. Cada pixel tem um propósito.</p>
       <a href="#" class="service-link">
         Explorar
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1355,7 +1324,7 @@ footer {
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
       </div>
       <h3 class="service-name">Sistemas, Apps & WebApps</h3>
-      <p class="service-desc">Desarrollo de software personalizado, aplicaciones móviles y web progresivas (PWA) — desde sistemas internos hasta productos SaaS y MVPs listos para el mercado.</p>
+      <p class="service-desc">Desenvolvimento de software personalizado, aplicativos móveis e web progressivas (PWA) — de sistemas internos a produtos SaaS e MVPs prontos para o mercado.</p>
       <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;">
         <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">iOS & Android</span>
         <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">PWA</span>
@@ -1374,7 +1343,7 @@ footer {
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
       </div>
       <h3 class="service-name">Identidad de Marca</h3>
-      <p class="service-desc">Construcción de identidad visual y posicionamiento de autoridad que distingue tu marca en el mercado.</p>
+      <p class="service-desc">Construção de identidade visual e posicionamento de autoridade que distingue sua marca no mercado.</p>
       <a href="#" class="service-link">
         Explorar
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -1387,7 +1356,7 @@ footer {
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
       </div>
       <h3 class="service-name">Creación de Documentos</h3>
-      <p class="service-desc">Diseño y edición profesional de documentos Word, Excel, PowerPoint y PDF — desde informes ejecutivos hasta presentaciones de alto impacto.</p>
+      <p class="service-desc">Design e edição profissional de documentos Word, Excel, PowerPoint e PDF — de relatórios executivos a apresentações de alto impacto.</p>
       <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;">
         <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Word</span>
         <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Excel</span>
@@ -1406,7 +1375,7 @@ footer {
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--gold)" stroke="none"/></svg>
       </div>
       <h3 class="service-name">Contenido para Redes</h3>
-      <p class="service-desc">Creación y edición de postagens e stories para Instagram, Facebook, LinkedIn y TikTok — diseños que detienen el scroll y comunican con autoridad.</p>
+      <p class="service-desc">Criação e edição de postagens e stories para Instagram, Facebook, LinkedIn e TikTok — designs que param o scroll e comunicam com autoridade.</p>
       <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;">
         <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Posts</span>
         <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Stories</span>
@@ -1425,7 +1394,7 @@ footer {
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
       </div>
       <h3 class="service-name">Automatización & IA</h3>
-      <p class="service-desc">Flujos inteligentes que trabajan por ti las 24 horas. Integración de APIs, CRMs y herramientas con IA aplicada — chatbots, análisis predictivo y generación de contenido automatizada.</p>
+      <p class="service-desc">Fluxos inteligentes que trabalham por você 24 horas. Integração de APIs, CRMs e ferramentas com IA aplicada — chatbots, análise preditiva e geração de conteúdo automatizada.</p>
       <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px;">
         <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Workflows</span>
         <span style="font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:4px 10px; border:1px solid rgba(201,168,76,0.25); color:var(--gold-dim); font-family:'Syne',sans-serif;">Chatbots IA</span>
@@ -1456,25 +1425,25 @@ footer {
       </div>
       <h2 class="section-title reveal">Precisión<br>como <em>estándar</em></h2>
       <p class="section-subtitle reveal" style="margin-bottom:0">
-        AXIS nació de la convicción de que las soluciones digitales deben ser tan sólidas en ingeniería como impecables en diseño. No construimos proyectos — construimos ventajas competitivas duraderas.
+        AXIS nasceu da convicção de que as soluções digitais devem ser tão sólidas em engenharia quanto impecáveis em design. Não construímos projetos — construímos vantagens competitivas duradouras.
       </p>
 
       <div class="values reveal">
         <div class="value-item">
-          <div class="value-title">Excelencia</div>
-          <div class="value-desc">Cero tolerancia a lo mediocre. Cada entrega es la mejor versión posible.</div>
+          <div class="value-title">Excelência</div>
+          <div class="value-desc">Zero tolerância ao medíocre. Cada entrega é a melhor versão possível.</div>
         </div>
         <div class="value-item">
           <div class="value-title">Precisión</div>
           <div class="value-desc">Soluciones exactas para problemas reales. Nada más, nada menos.</div>
         </div>
         <div class="value-item">
-          <div class="value-title">Integridad</div>
-          <div class="value-desc">Transparencia total en cada etapa. Tu éxito es nuestro compromiso.</div>
+          <div class="value-title">Integridade</div>
+          <div class="value-desc">Transparência total em cada etapa. Seu sucesso é nosso compromisso.</div>
         </div>
         <div class="value-item">
-          <div class="value-title">Visión</div>
-          <div class="value-desc">Pensamos a largo plazo. Diseñamos para escalar desde el día uno.</div>
+          <div class="value-title">Visão</div>
+          <div class="value-desc">Pensamos a longo prazo. Projetamos para escalar desde o primeiro dia.</div>
         </div>
       </div>
     </div>
@@ -1542,7 +1511,7 @@ footer {
   <div class="portfolio-grid reveal">
 
     <!-- Card 1 — K9 Landing Page -->
-    <div class="portfolio-card portfolio-card-tall" onclick="window.open('https://k9-fitness-academia.vercel.app/','_blank')">
+    <div class="portfolio-card" onclick="window.open('https://k9-fitness-academia.vercel.app/','_blank')">
       <div class="pf-iframe-wrap">
         <iframe src="https://k9-fitness-academia.vercel.app/" scrolling="no" tabindex="-1"></iframe>
       </div>
@@ -1550,7 +1519,7 @@ footer {
       <div class="portfolio-content">
         <div class="portfolio-tag">Landing Page · Personal Training</div>
         <div class="portfolio-title">K9 Fitness Academia</div>
-        <p class="pf-desc">Sitio de presentación para academia de personal training en Paraguay. Hero con metodología exclusiva, planes y WhatsApp.</p>
+        <p class="pf-desc">Sitio de presentación institucional para academia boutique. Hero con metodología, planos y captura directa.</p>
         <div class="pf-tags">
           <span>HTML/CSS</span><span>Vercel</span><span>WhatsApp API</span>
         </div>
@@ -1566,18 +1535,46 @@ footer {
       <div class="portfolio-content">
         <div class="portfolio-tag">PWA · App de Gestión · Fitness</div>
         <div class="portfolio-title">K9 Fitness — WebApp</div>
-        <p class="pf-desc">App progresiva con panel de alumno y treinadora. Biblioteca de ejercicios, progreso, treinos personalizados y chat. Backend Supabase.</p>
+        <p class="pf-desc">Plataforma interactiva para alumnos y entrenadores. Gestión de rutinas, evolución física y biblioteca técnica.</p>
         <div class="pf-tags">
           <span>PWA</span><span>Supabase</span><span>JavaScript</span>
         </div>
       </div>
     </div>
 
-  </div>
+    <!-- Card 3 — Arun Asian Bar Landing -->
+    <div class="portfolio-card" onclick="window.open('https://arunasianbar.vercel.app/','_blank')">
+      <div class="pf-iframe-wrap">
+        <iframe src="https://arunasianbar.vercel.app/" scrolling="no" tabindex="-1"></iframe>
+      </div>
+      <div class="portfolio-overlay"></div>
+      <div class="portfolio-content">
+        <div class="portfolio-tag">Landing Page · Alta Gastronomía</div>
+        <div class="portfolio-title">Arun Asian Bar — Landing</div>
+        <p class="pf-desc">Sitio institucional con estética premium. Galería inmersiva, sistema de reservas y presentación de marca.</p>
+        <div class="pf-tags">
+          <span>HTML/CSS</span><span>Vercel</span><span>Premium Design</span>
+        </div>
+      </div>
+    </div>
 
-  <div class="portfolio-row-2 reveal">
+    <!-- Card 4 — Arun Asian Bar WebApp -->
+    <div class="portfolio-card" onclick="window.open('https://delivery-arun.vercel.app/','_blank')">
+      <div class="pf-iframe-wrap">
+        <iframe src="https://delivery-arun.vercel.app/" scrolling="no" tabindex="-1"></iframe>
+      </div>
+      <div class="portfolio-overlay"></div>
+      <div class="portfolio-content">
+        <div class="portfolio-tag">WebApp · Delivery Inteligente</div>
+        <div class="portfolio-title">Arun Asian Bar — WebApp</div>
+        <p class="pf-desc">Sistema de pedidos de alta performance. Categorías fluidas, upsells dinámicos y checkout en un click.</p>
+        <div class="pf-tags">
+          <span>React</span><span>Sanity CMS</span><span>Performance</span>
+        </div>
+      </div>
+    </div>
 
-    <!-- Card 3 — Ana Fernandes -->
+    <!-- Card 5 — Ana Fernandes -->
     <div class="portfolio-card" onclick="window.open('https://ana-neon-eight.vercel.app/','_blank')">
       <div class="pf-iframe-wrap">
         <iframe src="https://ana-neon-eight.vercel.app/" scrolling="no" tabindex="-1"></iframe>
@@ -1586,14 +1583,14 @@ footer {
       <div class="portfolio-content">
         <div class="portfolio-tag">Landing Page · Espiritualidad</div>
         <div class="portfolio-title">Sacerdotisa Ana Fernandes</div>
-        <p class="pf-desc">Sitio de autoridad para cartomante y magista. Servicios espirituales, tarot y rituales con estética oscura impactante.</p>
+        <p class="pf-desc">Plataforma de autoridad con estética mística. Servicios espirituales, servicios personalizados y agendamiento.</p>
         <div class="pf-tags">
-          <span>HTML/CSS</span><span>Vercel</span>
+          <span>HTML/CSS</span><span>Vercel</span><span>Mystic UI</span>
         </div>
       </div>
     </div>
 
-    <!-- Card 4 — Café com Prétte -->
+    <!-- Card 6 — Café com Prétte -->
     <div class="portfolio-card" onclick="window.open('https://cafecomprette.vercel.app/','_blank')">
       <div class="pf-iframe-wrap">
         <iframe src="https://cafecomprette.vercel.app/" scrolling="no" tabindex="-1"></iframe>
@@ -1602,26 +1599,37 @@ footer {
       <div class="portfolio-content">
         <div class="portfolio-tag">Landing Page · Podcast</div>
         <div class="portfolio-title">Café com Prétte</div>
-        <p class="pf-desc">Sitio para podcast de desarrollo personal conducido por Elaine Prétte. Integración con YouTube, episodios recientes y llamada a WhatsApp.</p>
+        <p class="pf-desc">Hub para podcast con integración de YouTube. Acceso a episodios, redes sociales y contacto directo con la host.</p>
         <div class="pf-tags">
           <span>HTML/CSS</span><span>YouTube API</span><span>Vercel</span>
         </div>
       </div>
     </div>
 
-    <!-- Card 5 — Arun Asian Bar -->
-    <div class="portfolio-card" onclick="window.open('https://arunasianbar.vercel.app/','_blank')">
+    <!-- Card 7 — Smart Buy -->
+    <div class="portfolio-card" onclick="window.open('https://smartbuypy.vercel.app/','_blank')">
       <div class="pf-iframe-wrap">
-        <iframe src="https://arunasianbar.vercel.app/" scrolling="no" tabindex="-1"></iframe>
+        <iframe src="https://smartbuypy.vercel.app/" scrolling="no" tabindex="-1"></iframe>
       </div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content">
-        <div class="portfolio-tag">Landing Page · Restaurante</div>
-        <div class="portfolio-title">Arun Asian Bar</div>
-        <p class="pf-desc">Sitio de alta cocina asiática en Salto del Guairá. Diseño premium con menú, galería y reservas — estética oriental refinada.</p>
+        <div class="portfolio-tag">Landing Page · Logística</div>
+        <div class="portfolio-title">Smart Buy Paraguay</div>
+        <p class="pf-desc">Servicio de Personal Shopper internacional. Cotización por links, cálculo por kilo e integración logística.</p>
         <div class="pf-tags">
-          <span>HTML/CSS</span><span>Vercel</span>
+          <span>React</span><span>TypeScript</span><span>Logistics</span>
         </div>
+      </div>
+    </div>
+
+    <!-- Card 8 — Placeholder/Futuro -->
+    <div class="portfolio-card" style="opacity: 0.5; cursor: default;">
+      <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.4);">
+        <span style="font-family: 'Syne', sans-serif; font-size: 10px; letter-spacing: 0.2em; color: var(--gold-dim);">PRÓXIMAMENTE</span>
+      </div>
+      <div class="portfolio-content" style="opacity: 0.3;">
+        <div class="portfolio-tag">Innovación</div>
+        <div class="portfolio-title">Próximo Gran Proyecto</div>
       </div>
     </div>
 
@@ -1646,17 +1654,31 @@ footer {
       </div>
     </div>
     <div class="testimonial-item">
-      <p class="testimonial-quote">"Mi sitio quedó increíble. La estética, el diseño y la facilidad para que mis clientes me contacten superó todo lo que esperaba. Muy profesional y entrega rápida."</p>
+      <p class="testimonial-quote">"Mi sitio quedó increíble. La estética, el diseño y la facilidad para que mis clientes me contacten superó todo lo que esperaba. Muy profesional e entrega rápida."</p>
       <div class="testimonial-author">
         <div class="testimonial-name">Ana Fernandes</div>
-        <div class="testimonial-role">Sacerdotisa & Cartomante · Brasil</div>
+        <div class="testimonial-role">Sacerdotisa & Cartomante · Porto Alegre, Brasil</div>
       </div>
     </div>
     <div class="testimonial-item">
       <p class="testimonial-quote">"El sitio del Café com Prétte capturó exactamente la esencia del podcast. Moderno, cálido y funcional. Mis seguidores amaron el resultado — superó todo lo que imaginé."</p>
       <div class="testimonial-author">
         <div class="testimonial-name">Elaine Prétte</div>
-        <div class="testimonial-role">Host & Criadora · Café com Prétte Podcast, Paraguay</div>
+        <div class="testimonial-role">Host & Creadora · Salto del Guairá, Paraguay</div>
+      </div>
+    </div>
+    <div class="testimonial-item">
+      <p class="testimonial-quote">"La plataforma de delivery para Arun Asian Bar transformó nuestra atención. Rápida, intuitiva y con un diseño que refleja nuestra exclusividad. Excelente trabajo de AXIS."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-name">Christian Bogado</div>
+        <div class="testimonial-role">Arun Asian Bar · Salto del Guairá, Paraguay</div>
+      </div>
+    </div>
+    <div class="testimonial-item">
+      <p class="testimonial-quote">"Smart Buy necesitaba una presencia digital que transmitiera confianza y agilidad. AXIS entregó una landing page impecable que facilitó el proceso de cotización para nuestros clientes."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-name">David Sánchez</div>
+        <div class="testimonial-role">Smart Buy Paraguay · Katuete, Paraguay</div>
       </div>
     </div>
 
@@ -1664,6 +1686,8 @@ footer {
       <button class="t-dot active" onclick="setTestimonial(0)"></button>
       <button class="t-dot" onclick="setTestimonial(1)"></button>
       <button class="t-dot" onclick="setTestimonial(2)"></button>
+      <button class="t-dot" onclick="setTestimonial(3)"></button>
+      <button class="t-dot" onclick="setTestimonial(4)"></button>
     </div>
   </div>
 </section>
@@ -1770,6 +1794,7 @@ document.getElementById('footer-year').textContent = new Date().getFullYear();
 function scaleIframes() {
   document.querySelectorAll('.pf-iframe-wrap').forEach(wrap => {
     const card = wrap.closest('.portfolio-card');
+    if (!card) return;
     const wrapW = wrap.offsetWidth;
     const iframeW = 1280;
     const scale = wrapW / iframeW;
