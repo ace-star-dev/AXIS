@@ -286,6 +286,18 @@ section:last-of-type::after { display: none; }
   opacity: 0.85; 
   will-change: transform;
 }
+
+/* Mobile Fallback for Portfolio */
+.pf-mobile-icon { display: none; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); opacity: 0.15; }
+
+@media (max-width: 1024px) {
+  .pf-iframe-wrap { display: none; }
+  .pf-mobile-icon { display: block; }
+  .portfolio-card { 
+    height: 320px; 
+    background: linear-gradient(135deg, var(--surface-2) 0%, var(--black) 100%);
+  }
+}
 .portfolio-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,8,10,1) 0%, rgba(5,8,10,0.95) 35%, transparent 65%); z-index: 1; }
 .portfolio-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px 28px; z-index: 2; }
 .portfolio-tag { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-family: 'Syne', sans-serif; }
@@ -547,36 +559,43 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
   <h2 class="section-title reveal">Trabajo <em>seleccionado</em></h2>
   <div class="portfolio-grid reveal">
     <div class="portfolio-card" onclick="window.open('https://k9-fitness-academia.vercel.app/','_blank')">
+      <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
       <div class="pf-iframe-wrap"><iframe src="https://k9-fitness-academia.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Landing Page Experience</div><div class="portfolio-title">K9 Fitness</div><div class="pf-tags"><span>Luxury UI</span><span>Conversion</span><span>Mobile First</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://k9-webapp.vercel.app/','_blank')">
+      <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
       <div class="pf-iframe-wrap"><iframe src="https://k9-webapp.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Custom Systems & WebApps</div><div class="portfolio-title">K9 Management</div><div class="pf-tags"><span>Management</span><span>SaaS</span><span>Infrastructure</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://arunasianbar.vercel.app/','_blank')">
+      <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
       <div class="pf-iframe-wrap"><iframe src="https://arunasianbar.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Landing Page Experience</div><div class="portfolio-title">Arun Asian Bar</div><div class="pf-tags"><span>Luxury UI</span><span>Branding</span><span>Vercel</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://delivery-arun.vercel.app/','_blank')">
+      <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
       <div class="pf-iframe-wrap"><iframe src="https://delivery-arun.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Custom Systems & WebApps</div><div class="portfolio-title">Arun Delivery</div><div class="pf-tags"><span>E-commerce</span><span>SaaS</span><span>CMS</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://ana-neon-eight.vercel.app/','_blank')">
+      <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
       <div class="pf-iframe-wrap"><iframe src="https://ana-neon-eight.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Authority & Branding</div><div class="portfolio-title">Ana Fernandes</div><div class="pf-tags"><span>Visual ID</span><span>Authority</span><span>Performance</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://cafecomprette.vercel.app/','_blank')">
+      <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
       <div class="pf-iframe-wrap"><iframe src="https://cafecomprette.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Media & Content Hub</div><div class="portfolio-title">Café com Prétte</div><div class="pf-tags"><span>Integrations</span><span>Content Hub</span><span>UI Design</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://smartbuypy.vercel.app/','_blank')">
+      <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
       <div class="pf-iframe-wrap"><iframe src="https://smartbuypy.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Custom Systems & WebApps</div><div class="portfolio-title">Smart Buy</div><div class="pf-tags"><span>Logistics</span><span>Automation</span><span>Architecture</span></div></div>
@@ -671,6 +690,7 @@ setInterval(() => setTestimonial((currentT + 1) % items.length), 5000);
 const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 function scaleIframes() { 
+  if (window.innerWidth <= 1024) return;
   document.querySelectorAll('.pf-iframe-wrap').forEach(wrap => { 
     const baseWidth = 1280;
     const rect = wrap.getBoundingClientRect();
