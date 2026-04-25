@@ -291,10 +291,10 @@ section:last-of-type::after { display: none; }
 .pf-mobile-icon { display: none; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); opacity: 0.15; }
 
 @media (max-width: 1024px) {
-  .pf-iframe-wrap { display: none; }
-  .pf-mobile-icon { display: block; }
+  .pf-iframe-wrap { display: block; }
+  .pf-mobile-icon { display: none; }
   .portfolio-card { 
-    height: 320px; 
+    height: 380px; 
     background: linear-gradient(135deg, var(--surface-2) 0%, var(--black) 100%);
   }
 }
@@ -714,7 +714,6 @@ setInterval(() => setTestimonial((currentT + 1) % items.length), 5000);
 const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 function scaleIframes() { 
-  if (window.innerWidth <= 1024) return;
   document.querySelectorAll('.pf-iframe-wrap').forEach(wrap => { 
     const baseWidth = 1280;
     const rect = wrap.getBoundingClientRect();
