@@ -287,12 +287,13 @@ section:last-of-type::after { display: none; }
   will-change: transform;
 }
 
-/* Mobile Fallback for Portfolio */
-.pf-mobile-icon { display: none; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); opacity: 0.15; }
+/* Mobile Icon (Placeholder) */
+.pf-mobile-icon { display: block; position: absolute; top: 30%; left: 50%; transform: translate(-50%, -50%); opacity: 0.15; transition: opacity 0.5s; }
+.pf-mobile-icon.loaded { opacity: 0; }
 
 @media (max-width: 1024px) {
   .pf-iframe-wrap { display: block; }
-  .pf-mobile-icon { display: none; }
+  /* Icon stays until iframe loads */
   .portfolio-card { 
     height: 380px; 
     background: linear-gradient(135deg, var(--surface-2) 0%, var(--black) 100%);
@@ -410,7 +411,7 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
       <h2 class="section-title">Precisión como <em>estándar</em></h2>
       <p class="section-subtitle">AXIS nació de la convicción de que las soluciones digitales deben ser tan sólidas en ingeniería como impecables en design. No construimos projetos — construimos ventajas competitivas.</p>
       <div class="values">
-        <div class="value-item"><div class="value-title">Excelencia</div><div class="value-desc">Cero tolerancia a lo mediocre. Cada entrega es la mejor versión posible.</div></div>
+        <div class="value-item"><div class="value-title">Excelencia</div><div class="value-desc">Cero tolerancia a lo mediocre. Cada entrega é a melhor versão possível.</div></div>
         <div class="value-item"><div class="value-title">Precisión</div><div class="value-desc">Soluciones exactas para problemas reales. Sin ambigüedades.</div></div>
         <div class="value-item"><div class="value-title">Integridad</div><div class="value-desc">Transparencia total en cada etapa. Tu éxito es nuestro compromiso.</div></div>
         <div class="value-item"><div class="value-title">Visión</div><div class="value-desc">Diseñamos para escalar. Pensamos en el largo plazo de tu negocio.</div></div>
@@ -573,49 +574,49 @@ footer { background: var(--black); padding: 80px 60px 40px; border-top: 1px soli
   <div class="portfolio-grid reveal">
     <div class="portfolio-card" onclick="window.open('https://k9-fitness-academia.vercel.app/','_blank')">
       <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-      <div class="pf-iframe-wrap"><iframe src="https://k9-fitness-academia.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe data-src="https://k9-fitness-academia.vercel.app/" scrolling="no"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Landing Page Experience</div><div class="portfolio-title">K9 Fitness</div><div class="pf-tags"><span>Luxury UI</span><span>Conversion</span><span>Mobile First</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://k9-webapp.vercel.app/','_blank')">
       <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-      <div class="pf-iframe-wrap"><iframe src="https://k9-webapp.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe data-src="https://k9-webapp.vercel.app/" scrolling="no"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Custom Systems & WebApps</div><div class="portfolio-title">K9 Management</div><div class="pf-tags"><span>Management</span><span>SaaS</span><span>Infrastructure</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://arunasianbar.vercel.app/','_blank')">
       <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-      <div class="pf-iframe-wrap"><iframe src="https://arunasianbar.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe data-src="https://arunasianbar.vercel.app/" scrolling="no"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Landing Page Experience</div><div class="portfolio-title">Arun Asian Bar</div><div class="pf-tags"><span>Luxury UI</span><span>Branding</span><span>Vercel</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://delivery-arun.vercel.app/','_blank')">
       <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-      <div class="pf-iframe-wrap"><iframe src="https://delivery-arun.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe data-src="https://delivery-arun.vercel.app/" scrolling="no"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Custom Systems & WebApps</div><div class="portfolio-title">Arun Delivery</div><div class="pf-tags"><span>E-commerce</span><span>SaaS</span><span>CMS</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://ana-neon-eight.vercel.app/','_blank')">
       <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <div class="pf-iframe-wrap"><iframe src="https://ana-neon-eight.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe data-src="https://ana-neon-eight.vercel.app/" scrolling="no"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Authority & Branding</div><div class="portfolio-title">Ana Fernandes</div><div class="pf-tags"><span>Visual ID</span><span>Authority</span><span>Performance</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://cafecomprette.vercel.app/','_blank')">
       <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-      <div class="pf-iframe-wrap"><iframe src="https://cafecomprette.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe data-src="https://cafecomprette.vercel.app/" scrolling="no"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Media & Content Hub</div><div class="portfolio-title">Café com Prétte</div><div class="pf-tags"><span>Integrations</span><span>Content Hub</span><span>UI Design</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://smartbuypy.vercel.app/','_blank')">
       <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-      <div class="pf-iframe-wrap"><iframe src="https://smartbuypy.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe data-src="https://smartbuypy.vercel.app/" scrolling="no"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Custom Systems & WebApps</div><div class="portfolio-title">Smart Buy</div><div class="pf-tags"><span>Logistics</span><span>Automation</span><span>Architecture</span></div></div>
     </div>
     <div class="portfolio-card" onclick="window.open('https://metodolap.vercel.app/','_blank')">
       <div class="pf-mobile-icon"><svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="0.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-      <div class="pf-iframe-wrap"><iframe src="https://metodolap.vercel.app/" scrolling="no" loading="lazy"></iframe></div>
+      <div class="pf-iframe-wrap"><iframe data-src="https://metodolap.vercel.app/" scrolling="no"></iframe></div>
       <div class="portfolio-overlay"></div>
       <div class="portfolio-content"><div class="portfolio-tag">Strategic Architecture</div><div class="portfolio-title">Método LAP</div><div class="pf-tags"><span>Neuroscience</span><span>Leadership</span><span>High Performance</span></div></div>
     </div>
@@ -713,12 +714,12 @@ function setTestimonial(n) { if(!items[n]) return; items[currentT].classList.rem
 setInterval(() => setTestimonial((currentT + 1) % items.length), 5000);
 const observer = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
 function scaleIframes() { 
   document.querySelectorAll('.pf-iframe-wrap').forEach(wrap => { 
     const baseWidth = 1280;
     const rect = wrap.getBoundingClientRect();
     if (rect.width === 0) return;
-    
     const scale = rect.width / baseWidth; 
     const iframe = wrap.querySelector('iframe'); 
     if (iframe) { 
@@ -728,6 +729,27 @@ function scaleIframes() {
     } 
   }); 
 }
+
+// SMART LIVE LOAD - Previne quebra no mobile
+const pfObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const card = entry.target;
+      const iframe = card.querySelector('iframe');
+      const icon = card.querySelector('.pf-mobile-icon');
+      if (iframe && !iframe.src) {
+        iframe.src = iframe.getAttribute('data-src');
+        iframe.onload = () => {
+          if(icon) icon.classList.add('loaded');
+          scaleIframes();
+        };
+      }
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px 400px 0px' });
+
+document.querySelectorAll('.portfolio-card').forEach(card => pfObserver.observe(card));
+
 let resizeTimeout;
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimeout);
